@@ -1,0 +1,46 @@
+{
+  "production": {
+    "db_url": "http://10.28.7.197:7999/svc/pgt/",
+    "core_url": "http://10.28.7.197:7999/svc/pgt2/"
+  },
+  "development": {
+    "db_url": "http://restd.example.com/",
+    "core_url": "http://10.28.3.199:7999/svc/pgt2/"
+  },
+  "local": {
+    "db_url": "http://10.28.7.197:7999/svc/pgt/",
+    "core_url": "http://10.28.7.197:7999/svc/pgt2/"
+  },
+  "as1": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  },
+  "as2": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  },
+  "as3": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  },
+  "dev": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  },
+  "dev2": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  },
+  "dev3": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  },
+  "dev4": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  },
+  "stage": {
+    "db_url": "http://localhost:7999/svc/pgt/",
+    "core_url": "http://localhost:7999/svc/pgt2/"
+  }
+}

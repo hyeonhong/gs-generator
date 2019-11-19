@@ -1,0 +1,46 @@
+{
+    "name": "gs-generator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "deploy_prod": "cd deploy && ansible-playbook deploy_prod.yml",
+        "deploy_as": "cd deploy && ansible-playbook deploy_as.yml",
+        "deploy_dev": "cd deploy && ansible-playbook deploy_dev.yml",
+        "deploy_dev2": "cd deploy && ansible-playbook deploy_dev2.yml",
+        "deploy_dev3": "cd deploy && ansible-playbook deploy_dev3.yml",
+        "deploy_dev4": "cd deploy && ansible-playbook deploy_dev4.yml",
+        "deploy_stage": "cd deploy && ansible-playbook deploy_stage.yml",
+        "deploy_vultr": "cd deploy && ansible-playbook deploy_vultr.yml",
+        "deploy_local": "cd deploy && ansible-playbook deploy_local.yml",
+        "deploy_all": "cd deploy && ansible-playbook deploy_all.yml",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ninetydays/gs-generator.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ninetydays/gs-generator/issues"
+    },
+    "homepage": "https://github.com/ninetydays/gs-generator#readme",
+    "dependencies": {
+        "@google/clasp": "^2.1.0",
+        "axios": "^0.19.0",
+        "deasync": "^0.1.15",
+        "dotenv": "^8.0.0",
+        "express": "^4.17.1",
+        "googleapis": "^40.0.0",
+        "gulp": "^4.0.2",
+        "lockfile": "^1.0.4",
+        "moment": "^2.24.0",
+        "morgan": "^1.9.1",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.4",
+        "serve-favicon": "^2.5.0",
+        "winston": "^3.2.1"
+    }
+}

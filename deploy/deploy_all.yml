@@ -1,0 +1,97 @@
+---
+# This playbook deploys the banking_shinhan app on FEP.
+
+
+- hosts: local
+  tasks:
+    - name: Add, Commit, Push to git repository
+      shell: cd ..; git add .; git commit -m 'update'; git push
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Pull git repository
+      shell: cd ~/Documents/local-gs-generator && git pull https://gitkross31:git31\!%40%23@github.com/ninetydays/gs-generator.git
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Install npm package
+      shell: cd ~/Documents/local-gs-generator && npm i
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Ensure pm2 is running
+      shell: pm2 update
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Restart pm2 module
+      shell: pm2 restart local-gs-generator
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+
+- hosts: aws_prod:aws_dev:aws_dev234:aws_stage:purple
+  tasks:
+    - name: Pull git repository
+      shell: cd {{git_path}} && git pull https://gitkross31:git31\!%40%23@github.com/ninetydays/gs-generator.git
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Install npm package
+      shell: source .profile && cd {{git_path}} && npm i
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Restart pm2 module
+      shell: source .profile && pm2 restart gs-generator
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+
+- hosts: aws_as
+  tasks:
+    - name: Pull git repository
+      shell: cd {{git_path}} && git pull https://gitkross31:git31\!%40%23@github.com/ninetydays/gs-generator.git
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Install npm package
+      shell: cd {{git_path}} && npm i
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Restart pm2 module
+      shell: pm2 restart gs-generator
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines

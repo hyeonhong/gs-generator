@@ -1,0 +1,20 @@
+{
+  "production": {
+    "db_url": "http://rek9rvqfm1.example.com/"
+  },
+  "development": {
+    "db_url": "http://restd.example.com/"
+  },
+  "local": {
+    "db_url": "http://10.28.3.250:7999/svc/pgt/"
+  },
+  "dev": {
+    "db_url": "http://localhost:7999/svc/pgt/"
+  },
+  "dev2": {
+    "db_url": "http://localhost:7999/svc/pgt/"
+  },
+  "dev3": {
+    "db_url": "http://localhost:7999/svc/pgt/"
+  }
+}

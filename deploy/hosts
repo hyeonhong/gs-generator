@@ -1,0 +1,64 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+[aws_prod]
+10.28.7.99
+
+[aws_prod:vars]
+ansible_ssh_user=botrunner
+ansible_ssh_pass=botrunner113133!
+git_path=prod/gs-generator
+
+[aws_as]
+10.28.7.137
+10.28.7.197
+10.28.7.173
+
+[aws_as:vars]
+ansible_ssh_user=winflex
+ansible_ssh_pass=a8%^WlYs0T3&
+git_path=/data/winflex_report
+
+[aws_dev]
+10.28.3.199
+
+[aws_dev:vars]
+ansible_ssh_user=winflex
+ansible_ssh_pass=a8%^WlYs0T3&
+git_path=/data/winflex_report
+
+[aws_dev234]
+10.28.3.247
+10.28.3.250
+10.28.3.231
+
+[aws_dev234:vars]
+ansible_ssh_user=winflex
+ansible_ssh_private_key_file=/Users/a31/.ssh/KROSS_Access_20170202.pem
+git_path=/data/winflex_report
+
+[aws_stage]
+10.28.7.248
+
+[aws_stage:vars]
+ansible_ssh_user=winflex
+ansible_ssh_private_key_file=/Users/a31/.ssh/KROSS_Access_20170202.pem
+git_path=/data/winflex_report
+
+[purple]
+kd-purple.example.com
+
+[purple:vars]
+ansible_ssh_user=kross
+ansible_ssh_pass=k113133x8*
+git_path=Git/gs-generator
+
+[local]
+127.0.0.1 ansible_connection=local

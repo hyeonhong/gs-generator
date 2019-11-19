@@ -1,0 +1,38 @@
+---
+# This playbook deploys the banking_shinhan app on FEP.
+
+
+- hosts: local
+  tasks:
+    - name: Add, Commit, Push to git repository
+      shell: cd ..; git add .; git commit -m 'update'; git push
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+
+- hosts: aws_dev234[0]
+  tasks:
+    - name: Pull git repository
+      shell: cd /data/winflex_report && git pull https://gitkross31:git31\!%40%23@github.com/ninetydays/gs-generator.git
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Install npm package
+      shell: source .profile && cd /data/winflex_report && npm i
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines
+
+    - name: Restart pm2 module
+      shell: source .profile && pm2 restart gs-generator
+      args:
+        executable: /bin/bash
+      register: out
+    - debug: var=out.stdout_lines
+    - debug: var=out.stderr_lines

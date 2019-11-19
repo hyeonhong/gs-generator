@@ -1,0 +1,11 @@
+{
+  "production": {
+    "db_url": "http://rek9rvqfm1.example.com/"
+  },
+  "development": {
+    "db_url": "http://rek9rvqfm1.example.com/"
+  },
+  "local": {
+    "db_url": "http://rek9rvqfm1.example.com/"
+  }
+}
